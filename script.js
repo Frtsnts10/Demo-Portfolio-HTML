@@ -2,144 +2,123 @@ import { portfolioData } from './data.js';
 
 // DOM Elements
 const bodyElement = document.body;
-const toggleThemeButton = document.getElementById('toggleThemeButton');
-const toggleThemeMobileButton = document.getElementById('toggleThemeMobileButton');
-const hamburgerMenu = document.querySelector('.hamburger-icon');
-const menuLinks = document.querySelector('.menu-links');
+const themeToggle = document.getElementById('theme-toggle');
 
-// Init Theme from LocalStorage
+// Initialize Theme
 const initTheme = () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     bodyElement.setAttribute('data-theme', 'dark');
-  } else {
-    bodyElement.removeAttribute('data-theme');
   }
 };
 
 // Toggle Theme
-const toggleTheme = () => {
-  if (bodyElement.hasAttribute('data-theme')) {
-    bodyElement.removeAttribute('data-theme');
-    localStorage.setItem('theme', 'light');
-  } else {
-    bodyElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
-  }
-};
-
-if (toggleThemeButton) {
-  toggleThemeButton.addEventListener('click', toggleTheme);
-}
-if (toggleThemeMobileButton) {
-  toggleThemeMobileButton.addEventListener('click', toggleTheme);
-}
-
-// Toggle Mobile Menu
-if (hamburgerMenu) {
-  hamburgerMenu.addEventListener('click', () => {
-    menuLinks.classList.toggle('open');
-    hamburgerMenu.classList.toggle('open');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    if (bodyElement.hasAttribute('data-theme')) {
+      bodyElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    } else {
+      bodyElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    }
   });
 }
 
 // Render Data
 const renderData = () => {
-  // Render Profile
-  const profileNameElements = document.querySelectorAll('.profile-name');
-  const profileRoleElements = document.querySelectorAll('.profile-role');
-  const profileDescElement = document.querySelector('.profile-desc');
-  const profileAvatarElement = document.querySelector('.profile-avatar');
+  // Hero Data
+  document.getElementById('profile-status').textContent = portfolioData.profile.status;
+  document.getElementById('profile-title').innerHTML = portfolioData.profile.title.replace('DIGITAL', '<br>DIGITAL');
+  document.getElementById('profile-desc').textContent = portfolioData.profile.description;
   
-  profileNameElements.forEach(el => {
-      if(el) el.textContent = portfolioData.profile.name;
-  });
-  profileRoleElements.forEach(el => {
-      if(el) el.textContent = portfolioData.profile.role;
-  });
-  
-  if (profileDescElement) profileDescElement.textContent = portfolioData.profile.description;
-  if (profileAvatarElement) profileAvatarElement.src = portfolioData.profile.avatarUrl;
+  // About Data
+  document.getElementById('about-content').textContent = portfolioData.about.content;
 
-  // Render Skills
-  const frontendContainer = document.getElementById('frontend-skills');
-  if (frontendContainer && portfolioData.skills.frontend) {
-    frontendContainer.innerHTML = portfolioData.skills.frontend.map(skill => `
-      <article class="skill-item">
-        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-        <div class="name-Program">
-          <h3 class="program">${skill.name}</h3>
-          <p class="ability">${skill.level}</p>
-        </div>
-      </article>
-    `).join('');
+  // Skills Data
+  const skillsContainer = document.getElementById('skills-container');
+  if (skillsContainer) {
+    skillsContainer.innerHTML = portfolioData.skills.map(skill => 
+      `<span class="skill-pill">${skill}</span>`
+    ).join('');
   }
 
-  const designContainer = document.getElementById('design-skills');
-  if (designContainer && portfolioData.skills.design) {
-    designContainer.innerHTML = portfolioData.skills.design.map(skill => `
-      <article class="skill-item">
-        <svg class="skill-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-        <div class="name-Program">
-          <h3 class="program">${skill.name}</h3>
-          <p class="ability">${skill.level}</p>
-        </div>
-      </article>
-    `).join('');
-  }
-
-  // Render Work Experience
-  const workContainer = document.getElementById('work-experience');
-  if (workContainer && portfolioData.workExperience) {
-    workContainer.innerHTML = portfolioData.workExperience.map(work => `
-      <div class="working">
-        <div class="line"><div></div></div>
-        <div class="working-info">
-          <h4 class="working-title">${work.company}</h4>
-          <div class="job">
-            <p>${work.role} <i style="font-size: 1rem">(${work.period})</i></p>
-            <div class="working-job">
-              <ul>
-                ${work.tasks.map(task => `<li>${task}</li>`).join('')}
-              </ul>
-            </div>
-          </div>
-        </div>
+  // Experience Data
+  const experienceContainer = document.getElementById('experience-container');
+  if (experienceContainer) {
+    experienceContainer.innerHTML = portfolioData.experience.map(exp => `
+      <div class="timeline-item">
+        <div class="timeline-year">${exp.year}</div>
+        <div class="timeline-role">${exp.role}</div>
+        <div class="timeline-company">${exp.company}</div>
+        <p>${exp.desc}</p>
       </div>
     `).join('');
   }
 
-  // Render Projects
+  // Projects Data
   const projectsContainer = document.getElementById('projects-container');
-  if (projectsContainer && portfolioData.projects) {
-    projectsContainer.innerHTML = portfolioData.projects.map(project => `
-      <div class="project-card">
-        <div class="card-top">
-          <img src="${project.image}" alt="${project.title}" class="project-img" loading="lazy" />
-          <h2 class="project-title">${project.title}</h2>
-          <div class="badge">
-            ${project.tags.map(tag => `<span class="badge-icon">${tag}</span>`).join('')}
+  if (projectsContainer) {
+    projectsContainer.innerHTML = portfolioData.projects.map(project => {
+      // Determine CSS class based on size mapping
+      let sizeClass = 'project-small';
+      if (project.size === 'large') sizeClass = 'project-large';
+      if (project.size === 'medium') sizeClass = 'project-medium';
+
+      return `
+        <a href="${project.link}" class="bento-box project-card ${sizeClass}" target="_blank" rel="noopener noreferrer">
+          <div class="project-info">
+            <span class="project-type">${project.type}</span>
+            <h3 class="giant-text" style="font-size: clamp(1.5rem, 3vw, 2.5rem); margin-top: 1rem;">${project.title}</h3>
+            <p>${project.desc}</p>
           </div>
-        </div>
-        <div class="card-button">
-          <button class="project-btn" onclick="window.open('${project.githubLink}', '_blank')">Github</button>
-          <button class="project-btn" onclick="window.open('${project.demoLink}', '_blank')">Live Demo</button>
-        </div>
-      </div>
-    `).join('');
+          <div class="project-link-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      `;
+    }).join('');
   }
+
+  // Contact Data
+  const emailLink = document.getElementById('email-link');
+  if (emailLink) emailLink.href = `mailto:${portfolioData.profile.email}`;
+  
+  const githubLink = document.getElementById('github-link');
+  if (githubLink) githubLink.href = portfolioData.profile.github;
+
+  // Set Current Year
+  const yearElement = document.getElementById('year');
+  if (yearElement) yearElement.textContent = new Date().getFullYear();
 };
 
-// Sticky Header
-window.addEventListener("scroll", function () {
-  const header = document.querySelector("header");
-  if (header) {
-    header.classList.toggle("sticky", window.scrollY > 0);
-  }
-});
+// Intersection Observer for Scroll Animations (Fade-up effect)
+const setupScrollAnimations = () => {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15 // Trigger when 15% of element is visible
+  };
 
-// Initialize
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Optional: stop observing once it has appeared
+        // observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+  const elementsToAnimate = document.querySelectorAll('.fade-up');
+  elementsToAnimate.forEach(el => observer.observe(el));
+};
+
+// Initialize App
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   renderData();
+  
+  // Need a small timeout to allow DOM to render before observing
+  setTimeout(setupScrollAnimations, 100);
 });

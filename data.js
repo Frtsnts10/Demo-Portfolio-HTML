@@ -1,68 +1,61 @@
 export const portfolioData = {
   profile: {
-    name: "Alex Mercer",
-    role: "Software Engineer",
-    description: "Welcome to my minimalist portfolio. I focus on creating fast, lightweight, and zero-dependency web applications using semantic HTML and Vanilla JavaScript.",
-    cvLink: "#",
-    avatarUrl: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=400&q=80"
+    name: "ALEX MERCER",
+    title: "I BUILD DIGITAL EXPERIENCES.",
+    status: "🟢 Available for work",
+    description: "Software Engineer focusing on ultra-fast, zero-dependency frontend architectures.",
+    email: "hello@alexmercer.dev",
+    github: "https://github.com/alexmercer"
   },
   about: {
-    description: "I am a frontend developer dedicated to high-performance web applications. Passionate about modern web technologies and minimalist design principles.",
-    experience: "3+ Years Frontend Development",
-    education: "B.Sc. Computer Science"
+    title: "WHO I AM",
+    content: "I craft digital products that live at the intersection of design and engineering. No bloated frameworks, just raw performance and clean code."
   },
-  skills: {
-    frontend: [
-      { name: "HTML/CSS", level: "Experienced" },
-      { name: "JavaScript", level: "Experienced" },
-      { name: "Vanilla JS", level: "Experienced" }
-    ],
-    design: [
-      { name: "Figma", level: "Experienced" },
-      { name: "UI/UX", level: "Intermediate" }
-    ]
-  },
-  workExperience: [
+  skills: [
+    "HTML5", "CSS3", "Vanilla JS", "TypeScript", "Node.js", "Figma", "UI/UX", "Performance", "Accessibility"
+  ],
+  experience: [
     {
+      role: "Frontend Engineer",
       company: "Creative Studio",
-      role: "Frontend Developer",
-      period: "Jan 2023 - Present",
-      tasks: [
-        "Building modern, scalable web applications with clean UI/UX.",
-        "Collaborating with designers to implement minimalist design systems."
-      ]
+      year: "2023 - Present",
+      desc: "Architecting minimalist web solutions."
     },
     {
+      role: "UI/UX Developer",
       company: "Tech Innovators",
-      role: "UI/UX Intern",
-      period: "Jun 2022 - Dec 2022",
-      tasks: [
-        "Assisted in designing user interfaces for internal dashboard tools.",
-        "Created wireframes and interactive prototypes."
-      ]
+      year: "2022 - 2023",
+      desc: "Bridging the gap between design systems and code."
     }
   ],
   projects: [
     {
-      title: "Analytics Dashboard",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
-      tags: ["HTML", "CSS"],
-      githubLink: "#",
-      demoLink: "#"
+      title: "Zero-JS Dashboard",
+      type: "Data Visualization",
+      desc: "A fully functional analytical dashboard built entirely without client-side JavaScript, relying on CSS for interactivity.",
+      link: "#",
+      size: "large" // Takes up more space in the bento grid
     },
     {
-      title: "Minimalist E-Commerce",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80",
-      tags: ["Vanilla JS", "CSS"],
-      githubLink: "#",
-      demoLink: "#"
+      title: "Neo E-Commerce",
+      type: "Web App",
+      desc: "Headless storefront with sub-second page loads.",
+      link: "#",
+      size: "medium"
     },
     {
       title: "Design System",
-      image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=400&q=80",
-      tags: ["Figma"],
-      githubLink: "#",
-      demoLink: "#"
+      type: "Open Source",
+      desc: "A robust set of CSS variables and utility classes for rapid UI development.",
+      link: "#",
+      size: "medium"
+    },
+    {
+      title: "Brutalist Portfolio",
+      type: "Template",
+      desc: "The very site you are looking at right now.",
+      link: "#",
+      size: "small"
     }
   ]
 };

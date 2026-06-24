@@ -1,100 +1,78 @@
-/* Media Queries for Responsiveness */
+/* Media Queries for Bento Grid & Responsive Design */
 
 @media screen and (max-width: 1024px) {
-  section {
-    padding: 3rem 5%;
-  }
-
-  #hero {
-    flex-direction: column;
-    text-align: center;
-    gap: 3rem;
-  }
-
-  .hero-container {
-    order: 2;
-  }
-
-  .hero-image {
-    order: 1;
-  }
-
-  .profile-desc {
-    margin: 0 auto 2rem auto;
-  }
-
-  #about {
-    flex-direction: column;
-  }
-
-  .about-pic {
-    width: 300px;
-    height: 300px;
-  }
+  /* Tablet / Smaller Desktop */
+  .about-box { grid-column: span 12; }
+  .skills-box { grid-column: span 12; }
+  
+  .project-large { grid-column: span 12; grid-row: span 1; }
+  .project-medium { grid-column: span 6; grid-row: span 1; }
+  .project-small { grid-column: span 6; grid-row: span 1; }
 }
 
 @media screen and (max-width: 768px) {
-  .desktop-nav {
-    display: none;
+  /* Mobile Landscape / Small Tablet */
+  main {
+    padding-bottom: 15vh; /* extra padding for floating nav */
   }
 
-  .mobile-nav {
-    display: flex;
-  }
-
-  .profile-name {
-    font-size: 3rem;
-  }
-
-  .profile-role {
-    font-size: 1.5rem;
-  }
-
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .about-cards-container {
-    flex-direction: column;
-  }
-
-  .experience-wrapper {
-    flex-direction: column;
-  }
-
-  .list-experience {
-    grid-template-columns: 1fr;
+  .nav-container {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
   }
   
-  .project-grid {
+  .nav-logo {
+    display: none; /* Hide logo on mobile to save space */
+  }
+
+  .bento-box {
+    padding: 1.5rem;
+  }
+
+  .timeline {
     grid-template-columns: 1fr;
   }
 
-  .contact-container {
-    padding: 2rem 1.5rem;
+  .project-medium, .project-small { 
+    grid-column: span 12; 
+  }
+
+  .contact-box {
+    padding: 3rem 1rem;
+  }
+
+  .contact-pill {
+    padding: 0.8rem 2rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .profile-avatar {
-    width: 250px;
-    height: 250px;
+  /* Mobile Portrait */
+  .nav-container {
+    width: 90vw;
+    justify-content: space-between;
   }
 
-  .about-pic {
-    width: 250px;
-    height: 250px;
+  .nav-links {
+    gap: 1rem;
   }
 
-  .profile-name {
-    font-size: 2.5rem;
+  .nav-link {
+    font-size: 0.85rem;
   }
 
-  .title {
-    font-size: 2rem;
+  .marquee-track span {
+    font-size: 25vw;
   }
 
-  section {
-    padding: 2rem 5%;
+  #hero {
+    min-height: 70vh;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
   }
 }
