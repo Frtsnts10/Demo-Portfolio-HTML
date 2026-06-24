@@ -1,5 +1,3 @@
-import { portfolioData } from './data.js';
-
 // DOM Elements
 const bodyElement = document.body;
 const themeToggle = document.getElementById('theme-toggle');

@@ -1,4 +1,4 @@
-export const portfolioData = {
+const portfolioData = {
   profile: {
     name: "ALEX MERCER",
     title: "I BUILD DIGITAL EXPERIENCES.",
