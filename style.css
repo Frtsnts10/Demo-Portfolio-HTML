@@ -226,6 +226,8 @@ section {
   grid-template-columns: repeat(12, 1fr);
   gap: 1.5rem;
   grid-auto-flow: dense;
+  /* Tambahkan grid-auto-rows agar tinggi kotak seragam */
+  grid-auto-rows: minmax(150px, auto);
 }
 
 .bento-box {
@@ -237,6 +239,8 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-box:hover {
@@ -252,8 +256,8 @@ section {
 }
 
 /* Specific Bento Sizes for About Section */
-.about-box { grid-column: span 8; }
-.skills-box { grid-column: span 4; }
+.about-box { grid-column: span 8; grid-row: span 2;}
+.skills-box { grid-column: span 4; grid-row: span 2;}
 .experience-box { grid-column: span 12; }
 
 /* Skills Pills */
@@ -313,6 +317,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
 
 .project-type {

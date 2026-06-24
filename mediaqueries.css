@@ -2,8 +2,8 @@
 
 @media screen and (max-width: 1024px) {
   /* Tablet / Smaller Desktop */
-  .about-box { grid-column: span 12; }
-  .skills-box { grid-column: span 12; }
+  .about-box { grid-column: span 12; grid-row: auto; }
+  .skills-box { grid-column: span 12; grid-row: auto;}
   
   .project-large { grid-column: span 12; grid-row: span 1; }
   .project-medium { grid-column: span 6; grid-row: span 1; }
