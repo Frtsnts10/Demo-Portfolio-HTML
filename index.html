@@ -3,41 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio Website" />
+    <meta name="description" content="Modern Minimalist Portfolio Template" />
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <title>Personal Portfolio</title>
+    <title>Alex Mercer | Minimalist Portfolio</title>
   </head>
 
   <body>
     <header>
       <nav class="desktop-nav">
-        <a class="logo-title" href="#hero">FS.</a>
+        <a class="logo-title" href="#hero">AM.</a>
         <div class="nav-links">
           <a href="#about" class="link">About</a>
           <a href="#experience" class="link">Experience</a>
-          <a href="#education" class="link">Education</a>
           <a href="#projects" class="link">Projects</a>
           <a href="#contact" class="link">Contact</a>
-          <i class="btn ri-contrast-2-fill" id="toggleThemeButton"></i>
+          <button class="theme-btn" id="toggleThemeButton" aria-label="Toggle Dark Mode">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
         </div>
       </nav>
 
       <nav class="mobile-nav">
-        <a class="logo-title" href="#">FS.</a>
+        <a class="logo-title" href="#hero">AM.</a>
         <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()">
+          <div class="hamburger-icon" aria-label="Toggle Menu">
             <span></span>
             <span></span>
             <span></span>
@@ -45,726 +37,121 @@
           <ul class="menu-links">
             <li><a href="#about" class="link">About</a></li>
             <li><a href="#experience" class="link">Experience</a></li>
-            <li><a href="#education" class="link">Education</a></li>
             <li><a href="#projects" class="link">Projects</a></li>
             <li><a href="#contact" class="link">Contact</a></li>
+            <li>
+                <button class="theme-btn" id="toggleThemeMobileButton" aria-label="Toggle Dark Mode">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+            </li>
           </ul>
-          <i class="btn ri-contrast-2-fill" id="toggleThemeButton"></i>
         </div>
       </nav>
-
-      <script>
-        window.addEventListener("scroll", function () {
-          var header = document.querySelector("header");
-          header.classList.toggle("sticky", window.scrollY > 0);
-        });
-      </script>
     </header>
 
-    <section id="hero">
-      <div class="hero-container">
-        <div class="hero-section">
-          <h1 class="welcome-text">HI THERE !</h1>
-          <h2 class="header-title">I'M FILBERT</h2>
-
-          <h3 class="header-jobs">
-            IT Support / Front End Dev / Bussiness Owner
-          </h3>
+    <main>
+      <!-- Hero Section -->
+      <section id="hero">
+        <div class="hero-container">
+          <h1 class="welcome-text">HELLO THERE</h1>
+          <h2 class="profile-name"></h2>
+          <h3 class="profile-role"></h3>
+          <p class="profile-desc"></p>
+          <button class="dw-btn" onclick="window.open('#', '_blank')">Download My CV</button>
         </div>
-
-        <div class="hero-description">
-          <p>
-            Graduated from Tarumanagara University majoring in Information
-            System. Currently as a freelancer. Passionate in Front End
-            Development and Hardware Support. An enthusiastic person who is
-            always eager to learn new things. Have a good communication skill
-            and able to work in a team.
-          </p>
-
-          <button
-            class="dw-btn"
-            onclick="window.open('./assets/Filbert-Resume.pdf', '_blank')">
-            Download My CV
-          </button>
+        <div class="hero-image">
+          <img src="" alt="Profile" class="profile-avatar" loading="lazy" />
         </div>
-      </div>
+      </section>
 
-      <div class="hero-image">
-        <img src="assets/hero img/profile.webp" alt="" loading="lazy" />
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="title-container">
-        <h1 class="tags">Get To Know More</h1>
-        <h1 class="title">About Me</h1>
-      </div>
-
-      <div class="about-container">
-        <img
-          src="./assets/profile-2.webp"
-          alt="Profile picture"
-          class="about-pic"
-          loading="lazy" />
-
+      <!-- About Section -->
+      <section id="about">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80" alt="About Profile" class="about-pic" loading="lazy" />
         <div class="about-content">
-          <div class="container">
+          <div class="title-container" style="padding-top: 0; margin-bottom: 1rem;">
+            <h4 class="tags" style="text-align: left;">Get To Know More</h4>
+            <h1 class="title" style="text-align: left; margin-bottom: 1.5rem;">About Me</h1>
+          </div>
+          <div class="about-cards-container">
             <div class="container-card">
-              <img
-                src="./assets/icons/experience.webp"
-                alt="Experience icon"
-                class="icon" />
-
-              <h2 class="card-title">Experiences</h2>
-              <p class="card-description">
-                1+ years <br />Administration, IT Support <br />
-                Front End Dev, Financial Consultant
-              </p>
+              <svg class="card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              <h2 class="card-title">Experience</h2>
+              <p>3+ Years<br/>Frontend Development</p>
             </div>
-
             <div class="container-card">
-              <img
-                src="./assets/icons/education.webp"
-                alt="Education icon"
-                class="icon" />
-
-              <h2 class="card-title">Educations</h2>
-              <p class="card-description">
-                B.Sc. Bachelors Degree <br />Tarumanagara University <br />
-                2018 - 2022
-              </p>
+              <svg class="card-icon" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <h2 class="card-title">Education</h2>
+              <p>B.Sc. Computer Science<br/>2018 - 2022</p>
             </div>
           </div>
-
-          <!-- <div class="about-description">
-            <p>
-              Been working at Orang Tua Group as UI/UX Designer and Fullstack
-              Developer. Also been working as an IT Support for maintaining
-              problems occured in company. I'm also been working as an
-              administration at PT. Vysco Indo Pratama, and as a Financial
-              Consultant at Saltpartners Group.
-            </p>
-          </div> -->
+          <p>I am a frontend developer dedicated to high-performance web applications. Passionate about modern web technologies and minimalist design principles. I focus on creating fast, lightweight, and zero-dependency web applications.</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="experience">
-      <div class="title-container">
-        <h4 class="tags">Explore My</h4>
-        <h1 class="title">Experience</h1>
-      </div>
-
-      <div class="experience-container">
-        <div class="experience-card">
-          <h2 class="dev-title">Frontend Development</h2>
-
-          <div class="list-experience">
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">React</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">Next JS</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">Bootstrap</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="experience-card">
-          <h2 class="dev-title">Backend Development</h2>
-
-          <div class="list-experience">
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">Firebase</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">AWS</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="experience-card">
-          <h2 class="dev-title">Language</h2>
-
-          <div class="list-experience">
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">Javascript</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">Typescript</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">CSS</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-
-            <article>
-              <img
-                src="./assets/icons/checkmark.webp"
-                alt="Experience icon"
-                class="icon"
-                loading="lazy" />
-              <div class="name-Program">
-                <h3 class="program">Java</h3>
-                <p class="ability">Basic</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-
-      <div id="working">
+      <!-- Experience & Skills Section -->
+      <section id="experience">
         <div class="title-container">
-          <h4 class="tags">Working</h4>
-          <h1 class="title">Experience</h1>
+          <h4 class="tags">Explore My</h4>
+          <h1 class="title">Skills & Experience</h1>
+        </div>
+        
+        <div class="experience-wrapper">
+          <div class="experience-card">
+            <h2 class="dev-title">Frontend</h2>
+            <div class="list-experience" id="frontend-skills"></div>
+          </div>
+          <div class="experience-card">
+            <h2 class="dev-title">Design</h2>
+            <div class="list-experience" id="design-skills"></div>
+          </div>
         </div>
 
-        <div class="working-container">
-          <div class="skills-grid">
-            <div class="working">
-              <div class="line">
-                <div></div>
-              </div>
-              <div class="working-info">
-                <h4 class="working-title">Saltpartners Group</h4>
-                <div class="job">
-                  <p>
-                    Financial and Insurance Consultant
-                    <i style="font-size: 1.2rem">(Jun 2023 - Sep 2023)</i>
-                  </p>
-                  <h4 class="working-job">
-                    <ul>
-                      <li>
-                        <b>Relationship builder and leader : </b>
-                        Fosters positive and productive professional
-                        relationships, cultivating a strong and united team
-                        through effective communication and leadership. Expands
-                        the team strategically, ensuring a collaborative and
-                        supportive environment.
-                      </li>
-                      <li>
-                        <b>Community-driven collaborator : </b>
-                        Organizes monthly charity events as a unifying team
-                        activity and to express gratitude for shared progress
-                        and development. Values social responsibility and
-                        encourages team participation in making a positive
-                        impact.
-                      </li>
-                    </ul>
-                  </h4>
-                </div>
-              </div>
-            </div>
-
-            <div class="working">
-              <div class="line">
-                <div></div>
-              </div>
-              <div class="working-info">
-                <h4 class="working-title">PT. Uruz Solusi Teknologi</h4>
-                <div class="job">
-                  <p>
-                    IT Front End
-                    <i style="font-size: 1.2rem">(Nov 2022 - Apr 2023)</i>
-                  </p>
-                  <h4 class="working-job">
-                    <ul>
-                      <li>
-                        <b>Fullstack Mobile and Web Developer : </b>
-                      </li>
-                      Utilizes ReactNative and ReactJS to build cross-platform
-                      mobile applications and dynamic websites. Collaborates
-                      effectively with leadership and UI/UX teams to implement
-                      UI changes and facilitate communication across divisions.
-                      Possesses strong problem-solving skills to identify and
-                      resolve software bugs efficiently.
-                    </ul>
-                  </h4>
-                </div>
-              </div>
-            </div>
-
-            <div class="working">
-              <div class="line">
-                <div></div>
-              </div>
-              <div class="working-info">
-                <h4 class="working-title">PT. Vysco Indo Pratama</h4>
-                <div class="job">
-                  <p>
-                    Staff Administration
-                    <i style="font-size: 1.2rem">(May 2022 - Oct 2022)</i>
-                  </p>
-                  <h4 class="working-job">
-                    <ul>
-                      <li>
-                        <b>Manages plantation operations : </b>
-                        Oversees daily and monthly reporting, including fuel
-                        consumption, plantation work progress (area covered by
-                        each block), and invoicing for vehicles and goods
-                        shipments.
-                      </li>
-                      <li>
-                        <b>Facilitates communication and accuracy : </b>
-                        Fosters communication between plantation divisions and
-                        employees, while ensuring data integrity through
-                        cross-checks between accounting records and invoices.
-                      </li>
-                    </ul>
-                  </h4>
-                </div>
-              </div>
-            </div>
-
-            <div class="working">
-              <div class="line">
-                <div></div>
-              </div>
-              <div class="working-info">
-                <h4 class="working-title">Orang Tua Group</h4>
-
-                <div class="three">
-                  <div class="job">
-                    <p>
-                      IT Support Intern
-                      <i style="font-size: 1.2rem">(Sep 2021 - Dec 2021)</i>
-                    </p>
-                    <h4 class="working-job">
-                      <ul>
-                        <li>
-                          <b>Expert troubleshooter : </b>
-                          Resolves software, database, and web application
-                          issues promptly, ensuring optimal performance and user
-                          experience. Diagnoses and fixes installation and
-                          application problems across various software.
-                        </li>
-                        <li>
-                          <b> Collaborative developer : </b>
-                          Works closely with engineers to identify and resolve
-                          potential issues early in the software development
-                          process, contributing to a high-quality final product.
-                          Proactively analyzes software, suggests improvements,
-                          and prioritizes issue resolution, keeping stakeholders
-                          informed.
-                        </li>
-                      </ul>
-                    </h4>
-                  </div>
-
-                  <div class="job">
-                    <p>
-                      UI/UX Intern <i style="font-size: 1.2rem">(Aug 2021)</i>
-                    </p>
-                    <h4 class="working-job">
-                      <ul>
-                        <li>
-                          <b> User-centric problem solver : </b>
-                          Identifies and analyzes user experience (UX) issues in
-                          products and systems, translating user needs into
-                          improved UX solutions. Crafts reliable mockups to
-                          visualize solutions and creates functional prototypes
-                          to demonstrate product interactions.
-                        </li>
-                        <li>
-                          <b> Design asset creator : </b>
-                          Develops visual components like UI components, icons,
-                          and illustrations to enrich the user experience and
-                          bring design concepts to life.
-                        </li>
-                      </ul>
-                    </h4>
-                  </div>
-
-                  <div class="job">
-                    <p>
-                      Fullstack Intern
-                      <i style="font-size: 1.2rem">(July 2021)</i>
-                    </p>
-                    <h4 class="working-job">
-                      <ul>
-                        <li>
-                          <b>Fullstack Developer :</b>
-                          Skilled in both front-end and back-end development,
-                          leveraging C# and mySQL to create robust software
-                          solutions for corporate clients. Gathers and analyzes
-                          user requirements, designs, develops, and configures
-                          systems to meet specific needs.
-                        </li>
-                        <li>
-                          <b>Mobile app specialist :</b>
-                          Designs and develops cross-platform mobile
-                          applications for Android and mobile web, ensuring
-                          seamless user experience across different devices.
-                        </li>
-                      </ul>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="title-container">
+            <h4 class="tags">Working</h4>
+            <h1 class="title">Experience</h1>
         </div>
-      </div>
-    </section>
+        <div class="working-container" id="work-experience"></div>
+      </section>
 
-    <section id="education">
-      <div class="title-container">
-        <h4 class="tags">Explore My</h4>
-        <h1 class="title">Education</h1>
-      </div>
-
-      <div class="education-container">
-        <div class="school-grid">
-          <div class="education">
-            <div class="line">
-              <div></div>
-            </div>
-            <div class="education-info">
-              <h4 class="education-title">Tarumanagara University</h4>
-              <p>Bachelor Degree - Information Technology / Computer Science</p>
-              <h4 class="education-years">2018 - 2022</h4>
-            </div>
-          </div>
-
-          <div class="education">
-            <div class="line">
-              <div></div>
-            </div>
-            <div class="education-info">
-              <h4 class="education-title">
-                SMA Kristen Kalam Kudus II Kosambi
-              </h4>
-              <p>Senior High School - IPS</p>
-              <h4 class="education-years">2015 - 2018</h4>
-            </div>
-          </div>
-
-          <div class="education">
-            <div class="line">
-              <div></div>
-            </div>
-            <div class="education-info">
-              <h4 class="education-title">
-                SMP Kristen Kalam Kudus III Kosambi
-              </h4>
-              <p>Junior High School</p>
-              <h4 class="education-years">2012 - 2015</h4>
-            </div>
-          </div>
+      <!-- Projects Section -->
+      <section id="projects">
+        <div class="title-container">
+          <h4 class="tags">Browse My Recent</h4>
+          <h1 class="title">Projects</h1>
         </div>
-      </div>
-    </section>
+        <div class="project-grid" id="projects-container"></div>
+      </section>
 
-    <section id="projects">
-      <div class="title-container">
-        <h4 class="tags">Browse My Recent</h4>
-        <h1 class="title">Projects</h1>
-      </div>
-
-      <div class="project-container">
-        <div class="card-container">
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="card-top">
-                  <img
-                    src="./assets/projects/Pokemon.png"
-                    alt="Project 1"
-                    class="project-img" />
-
-                  <h2 class="project-title">Pokemon Clone</h2>
-                  <div class="badge">
-                    <badge class="badge-icon flutter">Flutter</badge>
-                    <badge class="badge-icon c_plus">C++</badge>
-                  </div>
-                </div>
-
-                <div class="card-button">
-                  <button
-                    class="btn-color-2 project-btn"
-                    onclick="window.open('https://github.com/Frtsnts10/Pokemon_tugas', '_blank')">
-                    Github
-                  </button>
-                  <!-- <button class="btn-color-2 project-btn">Live Demo</button> -->
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card-top">
-                  <img
-                    src="./assets/projects/Ramie.png"
-                    alt="Project 2"
-                    class="project-img" />
-
-                  <h2 class="project-title">Ramie Dashboard</h2>
-                  <div class="badge">
-                    <badge class="badge-icon nextjs">NextJS</badge>
-                  </div>
-                </div>
-
-                <div class="card-button">
-                  <button
-                    class="btn-color-2 project-btn"
-                    onclick="window.open('https://github.com/Frtsnts10/Pokemon_tugas', '_blank')">
-                    Github
-                  </button>
-                  <!-- <button class="btn-color-2 project-btn">Live Demo</button> -->
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card-top">
-                  <img src="" alt="Project 3" class="project-img" />
-
-                  <h2 class="project-title">Ramie Webstore</h2>
-                  <div class="badge">
-                    <badge class="badge-icon flutter">Flutter</badge>
-                    <badge class="badge-icon c_plus">C++</badge>
-                  </div>
-                </div>
-
-                <div class="card-button">
-                  <button
-                    class="btn-color-2 project-btn"
-                    onclick="window.open('https://github.com/Frtsnts10/Pokemon_tugas', '_blank')"
-                    target="_blank">
-                    Github
-                  </button>
-                  <button class="btn-color-2 project-btn">Live Demo</button>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card-top">
-                  <img
-                    src="./assets/projects/Pokemon.png"
-                    alt="Project 1"
-                    class="project-img" />
-
-                  <h2 class="project-title">Pokedex HTML Clone</h2>
-                  <div class="badge">
-                    <badge class="badge-icon html">HTML</badge>
-                    <badge class="badge-icon css">CSS</badge>
-                  </div>
-                </div>
-
-                <div class="card-button">
-                  <button
-                    class="btn-color-2 project-btn"
-                    onclick="window.open('https://github.com/Frtsnts10/Pokemon_tugas', '_blank')">
-                    Github
-                  </button>
-                  <button class="btn-color-2 project-btn">Live Demo</button>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card-top">
-                  <img
-                    src="./assets/projects/Pokemon.png"
-                    alt="Project 1"
-                    class="project-img" />
-
-                  <h2 class="project-title">Pokedex HTML Clone</h2>
-                  <div class="badge">
-                    <badge class="badge-icon html">HTML</badge>
-                    <badge class="badge-icon css">CSS</badge>
-                  </div>
-                </div>
-
-                <div class="card-button">
-                  <button
-                    class="btn-color-2 project-btn"
-                    onclick="window.open('https://github.com/Frtsnts10/Pokemon_tugas', '_blank')">
-                    Github
-                  </button>
-                  <button class="btn-color-2 project-btn">Live Demo</button>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="card-top">
-                  <img
-                    src="./assets/projects/Pokemon.png"
-                    alt="Project 1"
-                    class="project-img" />
-
-                  <h2 class="project-title">Pokedex HTML Clone</h2>
-                  <div class="badge">
-                    <badge class="badge-icon html">HTML</badge>
-                    <badge class="badge-icon css">CSS</badge>
-                  </div>
-                </div>
-
-                <div class="card-button">
-                  <button
-                    class="btn-color-2 project-btn"
-                    onclick="window.open('https://github.com/Frtsnts10/Pokemon_tugas', '_blank')">
-                    Github
-                  </button>
-                  <button class="btn-color-2 project-btn">Live Demo</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-          </div>
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="title-container">
+          <h4 class="tags">Let's Connect</h4>
+          <h1 class="title">Contact Me</h1>
         </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="title-container">
-        <h1 class="tags">Let's Connect</h1>
-        <h1 class="title">Contact Me</h1>
-      </div>
-
-      <div class="contact-container">
-        <form action="#" method="post">
-          <div class="profile">
-            <div class="input-name">
-              <h2 class="contact-input">Name</h2>
-              <input type="text" name="name" placeholder="Enter Your Name" />
+        <div class="contact-container">
+          <form action="#" method="post">
+            <div class="contact-input-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter Your Name" required />
             </div>
-
-            <div class="input-email">
-              <h2 class="contact-input">Email</h2>
-              <input type="email" name="name" placeholder="Enter Your Email" />
+            <div class="contact-input-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Enter Your Email" required />
             </div>
-          </div>
+            <div class="contact-input-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-          <div class="message">
-            <h2 class="contact-input">Message:</h2>
-            <textarea name="message" placeholder="Your Message"></textarea>
-          </div>
-        </form>
-
-        <button type="submit" class="btn">
-          Send <i class="fas fa-paper-plane"></i>
-        </button>
-      </div>
-    </section>
-
-    <footer id="footer">
-      <h2 class="copyright">2023 Filbert Portfolio. All Rights Reserved.</h2>
+    <footer>
+      <h2 class="copyright">© 2026 Alex Mercer Portfolio Template. Open Source MIT License.</h2>
     </footer>
 
-    <script src="script.js"></script>
-
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-
-        breakpoints: {
-          0: {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-          },
-          500: {
-            slidesPerView: 1,
-            slidesPerGroup: 1,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            slidesPerGroup: 2,
-          },
-          900: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-            slidesPerGroup: 2,
-          },
-          1100: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-            slidesPerGroup: 3,
-          },
-        },
-      });
-    </script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
