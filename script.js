@@ -1,27 +1,40 @@
 // DOM Elements
-const bodyElement = document.body;
+const rootElement = document.documentElement;
 const themeToggle = document.getElementById('theme-toggle');
 
-// Initialize Theme
-const initTheme = () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    bodyElement.setAttribute('data-theme', 'dark');
+// Theme: saved choice wins, otherwise follow the OS preference
+const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+const getSavedTheme = () => {
+  try { return localStorage.getItem('theme'); } catch (e) { return null; }
+};
+
+const applyTheme = (theme) => {
+  if (theme === 'dark') {
+    rootElement.setAttribute('data-theme', 'dark');
+  } else {
+    rootElement.removeAttribute('data-theme');
   }
+  if (themeToggle) themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+};
+
+const initTheme = () => {
+  applyTheme(getSavedTheme() || (darkQuery.matches ? 'dark' : 'light'));
 };
 
 // Toggle Theme
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
-    if (bodyElement.hasAttribute('data-theme')) {
-      bodyElement.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-    } else {
-      bodyElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    }
+    const next = rootElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
   });
 }
+
+// Follow OS changes until the user picks a theme manually
+darkQuery.addEventListener('change', (e) => {
+  if (!getSavedTheme()) applyTheme(e.matches ? 'dark' : 'light');
+});
 
 // Render Data
 const renderData = () => {
